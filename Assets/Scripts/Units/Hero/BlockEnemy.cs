@@ -31,13 +31,20 @@ public class BlockEnemy : MonoBehaviour
         engagedEnemies = new List<GameObject>();
         nextAttackTime = 0.0f;
     }
+
+    //death is handled by the healthbar; do cleanup here
+    void OnDestroy(){
+        foreach(GameObject enemy in engagedEnemies){
+            enemy.GetComponent<MoveToGoal>().unblockEnemy();
+        }
+    }
+
     void FixedUpdate(){
         //clean out enemies that have been killed by other units
         sterilizeEngagedEnemies();
         //fetch and block enemies in range
         List<GameObject> enemiesInRange = getEnemiesInRange();
         if(enemiesInRange.Count > 0 && currentlyBlocking < block){
-            Debug.Log("Hero -- Enemies in range! Attempting to block!");
             tryToBlockEnemy(enemiesInRange);
         }
         //try to attack enemies

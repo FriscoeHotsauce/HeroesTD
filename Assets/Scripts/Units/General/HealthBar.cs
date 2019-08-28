@@ -20,7 +20,6 @@ public class HealthBar : MonoBehaviour
     //return true if the attack dealt fatal damage
     public bool dealDamage(int damage){
         currentHealth = currentHealth - damage;
-        Debug.Log(currentHealth / maxHealth);
         healthBar.fillAmount = ((float)currentHealth / (float)maxHealth); //why do you make me cast things C#, why do you hurt me so
         if(currentHealth <= 0){
             GetComponent<Die>()?.killUnit();

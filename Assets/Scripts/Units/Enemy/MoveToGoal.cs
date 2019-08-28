@@ -50,6 +50,7 @@ public class MoveToGoal : MonoBehaviour
     }
 
     private void attackTarget(){
+        animator.Play("Bite");
         nextAttackTime = Time.time + attackSpeed;
         if(targetToAttack.GetComponent<HealthBar>().dealDamage(attack)){
             unblockEnemy();

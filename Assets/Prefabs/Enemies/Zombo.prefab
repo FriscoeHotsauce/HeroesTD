@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 3981779349609903608}
   - component: {fileID: 3981779349609903615}
   - component: {fileID: 3981779349609903614}
-  - component: {fileID: 3981779349609903605}
   - component: {fileID: 208588562}
+  - component: {fileID: 805015108667254195}
   m_Layer: 0
   m_Name: Zombo
   m_TagString: Enemy
@@ -31,14 +31,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3981779349609903613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: -3.35, y: 0.97, z: 15.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1679627970148191017}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!212 &3981779349609903611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -184,18 +184,6 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   healthBar: {fileID: 9082153483869087469}
---- !u!114 &3981779349609903605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3981779349609903613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e0dd261c8cd7948a65903c2ecee063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &208588562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +197,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathAnimationName: Die
+--- !u!114 &805015108667254195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981779349609903613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56a2b3a3b85eab4e837d10a9935b68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 10
 --- !u!1001 &3981779349108202771
 PrefabInstance:
   m_ObjectHideFlags: 0
