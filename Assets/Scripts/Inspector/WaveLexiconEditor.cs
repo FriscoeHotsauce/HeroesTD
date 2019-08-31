@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(WaveBuilder))]
+//[CustomEditor(typeof(WaveBuilder))] todo come back to this later
 public class WaveLexiconEditor : Editor
 {
     public override void OnInspectorGUI(){
@@ -16,7 +16,7 @@ public class WaveLexiconEditor : Editor
 
         EditorGUILayout.Space ();
         EditorGUILayout.Space ();
-        EditorGUILayout.HelpBox ("Eat a dick yo", MessageType.Info);
+        EditorGUILayout.HelpBox ("'Sup'", MessageType.Info);
         EditorGUILayout.Space ();
 }
 }
