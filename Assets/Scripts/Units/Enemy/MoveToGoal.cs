@@ -26,9 +26,9 @@ public class MoveToGoal : MonoBehaviour
         }
         damageToGoal = 1;
         //scrape stats
-        moveSpeed = GetComponent<Stats>().getMovement();
-        attackSpeed = Utils.calculateAttackRate(GetComponent<Stats>().getAgility());
-        attack = GetComponent<Stats>().getAttack();
+        moveSpeed = GetComponent<EnemyMeleeStats>().getMovement();
+        attackSpeed = Utils.calculateAttackRate(GetComponent<EnemyMeleeStats>().getAgility());
+        attack = GetComponent<EnemyMeleeStats>().getAttack();
         nextAttackTime = 0.0f;
 
         //set up nav mesh

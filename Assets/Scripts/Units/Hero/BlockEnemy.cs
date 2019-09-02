@@ -22,10 +22,10 @@ public class BlockEnemy : MonoBehaviour
     }
     void Start(){
         //initialize stats
-        attack = GetComponent<Stats>().getAttack();
-        attackSpeed = calculateAttackRate(GetComponent<Stats>().getAgility());
-        block = GetComponent<Stats>().getBlock();
-        range = GetComponent<Stats>().getRange();
+        attack = GetComponent<HeroStats>().getAttack();
+        attackSpeed = calculateAttackRate(GetComponent<HeroStats>().getAgility());
+        block = GetComponent<HeroStats>().getBlock();
+        range = GetComponent<HeroStats>().getRange();
         animator = GetComponent<Animator>();
 
         engagedEnemies = new List<GameObject>();

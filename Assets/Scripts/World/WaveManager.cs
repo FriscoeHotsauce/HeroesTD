@@ -14,17 +14,19 @@ public class WaveManager : MonoBehaviour
     public Text waveDisplay;
     public Text waveCooldown;
     public List<WaveBuilder> waveLexicon;
-    //public List<Transform> spawnLocations;
     public int currentWave;
     public int totalWaves;
     public float nextWaveStart;
     public float waveDelay;
+    public bool startWaves;
+
     //a boolean to tell us if we should be waiting for the next wave to start
     private bool waveDelaySet;
 
     void Start(){
         currentWave = 1;
         waveDelaySet = false;
+        startWaves = false;
         waveLexicon = GetComponents<WaveBuilder>().ToList();
         totalWaves = getMaxWave();
         setWaveDisplayText();
@@ -36,17 +38,23 @@ public class WaveManager : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(!isWaveEnded()){
-            advanceTimeAndSpawnEnemies();
-        } else if(!waveDelaySet) {
-            nextWaveStart = Time.time + waveDelay;
-            waveDelaySet = true;
-            waveCooldownRadialDisplay.gameObject.SetActive(true);
-        } else if(Time.time > nextWaveStart) {
-            advanceToNextWave();
-            waveDelaySet = false;
-            waveCooldownRadialDisplay.gameObject.SetActive(false);
+        if(startWaves){
+            if(!isWaveEnded()){
+                advanceTimeAndSpawnEnemies();
+            } else if(!waveDelaySet) {
+                nextWaveStart = Time.time + waveDelay;
+                waveDelaySet = true;
+                waveCooldownRadialDisplay.gameObject.SetActive(true);
+            } else if(Time.time > nextWaveStart) {
+                advanceToNextWave();
+                waveDelaySet = false;
+                waveCooldownRadialDisplay.gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void begin(){
+        startWaves = true;
     }
 
     public void advanceTimeAndSpawnEnemies(){
@@ -73,6 +81,10 @@ public class WaveManager : MonoBehaviour
         return currentWave;
     }
 
+    public bool getWavesStarted(){
+        return startWaves;
+    }
+
     private void setWaveDisplayText(){
         waveDisplay.text = waveDisplayPrefix + currentWave + " / " + totalWaves;
     }
@@ -80,7 +92,7 @@ public class WaveManager : MonoBehaviour
     private void setWaveCountdown(){
         if(waveDelaySet){
             waveCooldown.text = waveCooldownPrefix + (String.Format("{0:.00}",Math.Round(nextWaveStart - Time.time, 2))); //this is stupid but looks so cool
-            waveCooldownRadialDisplay.fillAmount = 1 - ((nextWaveStart-Time.time) / nextWaveStart);
+            waveCooldownRadialDisplay.fillAmount = ((nextWaveStart - Time.time) / waveDelay);
         } else {
             waveCooldown.text = "";
         }

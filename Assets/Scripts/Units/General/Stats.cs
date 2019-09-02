@@ -9,21 +9,16 @@ using UnityEngine;
     @property Attack
     @property Defense
     @property Resistance
-    @property Block
-    @property Range
     @property Agility
     @property Movement
  */
-public class Stats : MonoBehaviour
+public abstract class Stats : MonoBehaviour
 {
    public int Health;
    public int Attack;
    public int Defense;
    public int Resistance;
-   public int Block;
-   public float Range;
    public float Agility;
-   public float Movement;
 
    public int getHealth(){
        return Health;
@@ -37,16 +32,8 @@ public class Stats : MonoBehaviour
    public int getResistance(){
        return Resistance;
    }
-   public int getBlock(){
-       return Block;
-   }
-   public float getRange(){
-       return Range;
-   }
+
    public float getAgility(){
        return Agility;
-   }
-   public float getMovement(){
-       return Movement;
    }
 }

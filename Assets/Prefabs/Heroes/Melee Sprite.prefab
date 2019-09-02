@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 8155793126202733753}
   - component: {fileID: 8155793126202733752}
   - component: {fileID: 8155793126202733755}
-  - component: {fileID: 8155793126202733754}
   - component: {fileID: 8155793126202733757}
   - component: {fileID: 1308490344}
+  - component: {fileID: 31477907}
+  - component: {fileID: 31477903}
+  - component: {fileID: 4632301571185754229}
+  - component: {fileID: 8414937977376591365}
   m_Layer: 0
   m_Name: Melee Sprite
   m_TagString: Hero
@@ -105,26 +108,6 @@ MonoBehaviour:
   currentlyBlocking: 0
   engagedEnemies: []
   animator: {fileID: 0}
---- !u!114 &8155793126202733754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8155793126202733756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef38e33115a1d44cbf94b8a477a13eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  Attack: 6
-  Defense: 0
-  Resistance: 0
-  Block: 2
-  Range: 2
-  Agility: 50
-  Movement: 0
 --- !u!114 &8155793126202733757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  healthBarCanvas: {fileID: 6983378341355815848}
   healthBar: {fileID: 4064331411940017575}
 --- !u!95 &1308490344
 Animator:
@@ -159,6 +143,66 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &31477907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdbd337d45ff33418d32f939e028c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathAnimationName: Swipe
+--- !u!114 &31477903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2da068484edf242bb96949bd345c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  Attack: 6
+  Defense: 5
+  Resistance: 5
+  Agility: 50
+  block: 2
+  range: 2
+  cost: 13
+--- !u!114 &4632301571185754229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3dd2f66ae2ffb4d8757402157c5088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hardpoint: {fileID: 0}
+--- !u!114 &8414937977376591365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: 5867817779904583695, guid: 6a77733a18b3e874f80b42a7c64bda44,
+    type: 3}
 --- !u!1001 &8155793127968800345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 1280925795334585841, guid: 8a0fc2e1adadab747a3e62762a4f1044,
         type: 3}
       propertyPath: m_Name
-      value: HealthBar
+      value: HealthBarCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2309541241788487226, guid: 8a0fc2e1adadab747a3e62762a4f1044,
         type: 3}
@@ -288,6 +332,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a0fc2e1adadab747a3e62762a4f1044, type: 3}
+--- !u!1 &6983378341355815848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1280925795334585841, guid: 8a0fc2e1adadab747a3e62762a4f1044,
+    type: 3}
+  m_PrefabInstance: {fileID: 8155793127968800345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5846254123884488803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2309541241788487226, guid: 8a0fc2e1adadab747a3e62762a4f1044,

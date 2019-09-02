@@ -12,9 +12,9 @@ public class RangedAttack : MonoBehaviour
   private float nextAttackTime;
 
     void Start(){
-        attack = GetComponent<Stats>().getAttack();
-        attackSpeed = calculateAttackRate(GetComponent<Stats>().getAgility());
-        range = GetComponent<Stats>().getRange();
+        attack = GetComponent<HeroStats>().getAttack();
+        attackSpeed = calculateAttackRate(GetComponent<HeroStats>().getAgility());
+        range = GetComponent<HeroStats>().getRange();
 
         nextAttackTime = 0.0f;
     }
