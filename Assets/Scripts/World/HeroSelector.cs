@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class HeroSelector : MonoBehaviour
    public int horizontalMargin;
 
    void Start(){
+      heroButtons = gameObject.GetComponentsInChildren<SelectHeroButton>().ToList();
       heroSelectorUiAnimator = gameObject.GetComponent<Animator>();
       buildHeroPicker();
       requisitionManager = GameObject.FindWithTag("RequisitionManager").GetComponent<RequisitionManager>();
@@ -47,8 +49,8 @@ public class HeroSelector : MonoBehaviour
 
    public void updateButtonValidity(){
       heroButtons.ForEach(button => {
-         if(requisitionManager.getCurrentRequisitionPoints() < button.getCost() ||
-             button.getUnitType() != lastHardpointSelected.GetComponent<Hardpoint>().getHardpointType()){
+         if(button.iSActive() && (requisitionManager.getCurrentRequisitionPoints() < button.getCost() ||
+               button.getUnitType() != lastHardpointSelected.GetComponent<Hardpoint>().getHardpointType())){
             button.disableButton();
          } else {
             button.enableButton();
@@ -56,21 +58,30 @@ public class HeroSelector : MonoBehaviour
       });
    }
 
-   public void buildHeroPicker(){
-      for(int i = 0; i < heroRoster.Length; i++){
-         int row = 1 + (i/itemsPerRow); 
-         int x = horizontalOffset + (1+i)*horizontalMargin;
-         int y = - (row * verticalMargin + verticalOffset);
-         Debug.Log("Positioning button at row"+row+", ("+x+","+y+")");
-         Vector3 buttonPosition = new Vector3(x, y,  heroPicker.position.z);
-         Transform newButton = Instantiate(heroButtonPrefab, buttonPosition, heroPicker.rotation).transform;
-         newButton.SetParent(transform, false);
-         SelectHeroButton selectButtonScript = newButton.GetComponent<SelectHeroButton>();
-         selectButtonScript.setHeroPrefab(heroRoster[i]);
-         selectButtonScript.setPosition(buttonPosition);
-         heroButtons.Add(selectButtonScript);
+   public void buildHeroPicker(){      
+      for(int i = 0; i < heroButtons.Count; i++){
+         if(i < heroRoster.Length){
+            heroButtons[i].setHeroPrefab(heroRoster[i]);
+         } else {
+            heroButtons[i].hideButton();
+         }
       }
 
+      // Unity really doesn't like dynamically created UI, gonna stash this for now and maybe re-visit it later.
+      // for(int i = 0; i < heroRoster.Length; i++){
+      //    int row = (i/itemsPerRow); 
+      //    int x = horizontalOffset + (1+i)*horizontalMargin;
+      //    int y = - (row * verticalMargin + verticalOffset);
+      //    Debug.Log("Positioning button at row"+row+", ("+x+","+y+")");
+      //    Vector2 buttonPosition = new Vector3(x, y);
+      //    Transform newButton = Instantiate(heroButtonPrefab).transform;
+      //    newButton.SetParent(transform, false);
+      //    newButton.GetComponent<RectTransform>().anchoredPosition = buttonPosition;
+      //    SelectHeroButton selectButtonScript = newButton.GetComponent<SelectHeroButton>();
+      //    selectButtonScript.setHeroPrefab(heroRoster[i]);
+      //    selectButtonScript.setPosition(buttonPosition);
+      //    heroButtons.Add(selectButtonScript);
+      // }
    }
 
    public void hideSelector(){

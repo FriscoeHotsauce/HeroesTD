@@ -55,6 +55,18 @@ public class SelectHeroButton : MonoBehaviour
         return heroStats.getUnitType();
     }
 
+    public void hideButton(){
+        gameObject.SetActive(false);
+    }
+
+    public void showButton(){
+        gameObject.SetActive(true);
+    }
+
+    public bool iSActive(){
+        return gameObject.activeSelf;
+    }
+
     public void disableButton(){
         heroButton.interactable = false;
     }
@@ -62,4 +74,5 @@ public class SelectHeroButton : MonoBehaviour
     public void enableButton(){
         heroButton.interactable = true;
     }
+
 }

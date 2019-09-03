@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1600, y: 900}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2520,8 +2520,8 @@ MonoBehaviour:
   heroPicker: {fileID: 1116877784}
   requisitionManager: {fileID: 0}
   itemsPerRow: 8
-  verticalOffset: 0
-  horizontalOffset: 40
+  verticalOffset: 12
+  horizontalOffset: 110
   verticalMargin: 80
   horizontalMargin: 80
 --- !u!95 &1116877786
