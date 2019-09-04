@@ -9,12 +9,14 @@ public class RangedAttack : MonoBehaviour
   public float attackSpeed;
   public Transform missilePrefab;
   public GameObject currentTarget;
+  private HeroStats heroStats;
   private float nextAttackTime;
 
     void Start(){
-        attack = GetComponent<HeroStats>().getAttack();
-        attackSpeed = calculateAttackRate(GetComponent<HeroStats>().getAgility());
-        range = GetComponent<HeroStats>().getRange();
+        heroStats = GetComponent<HeroStats>();
+        attack = heroStats.getAttack();
+        attackSpeed = Utils.calculateAttackRate(heroStats.getUnitType(), heroStats.getAgility());
+        range = heroStats.getRange();
 
         nextAttackTime = 0.0f;
     }
@@ -38,7 +40,7 @@ public class RangedAttack : MonoBehaviour
     }
 
     private void acquireNewTarget(){
-        List<GameObject> enemiesInRange = getEnemiesInRange();
+        List<GameObject> enemiesInRange = Utils.getEnemiesInRange(transform.position, range);
         //Debug.Log("Targets in range:"+enemiesInRange.Count);
         if(enemiesInRange.Count > 0){
             //Debug.Log("Acquiring new target! + " + enemiesInRange[0].transform.name);
@@ -49,14 +51,14 @@ public class RangedAttack : MonoBehaviour
     }
 
     private void fireMissile(){
-        if(currentTarget != null){
-            //Debug.Log("Bang! - " + currentTarget.transform.name);
-            Transform missile = Instantiate(missilePrefab, transform.position, transform.rotation);
+        if(currentTarget != null){            
+            Stats enemyStats = currentTarget.transform.GetComponent<Stats>();
+            int damage = Utils.calculateDamageDealt(enemyStats, heroStats.getAttack(), heroStats.getMagic());
             
+            Transform missile = Instantiate(missilePrefab, transform.position, transform.rotation);
             missile.GetComponent<Missile>().setTarget(currentTarget.transform);
-            missile.GetComponent<Missile>().setDamage(attack);
+            missile.GetComponent<Missile>().setDamage(damage);
         }
-        
     }
 
     private bool isCurrentTargetInRange(){
@@ -65,22 +67,5 @@ public class RangedAttack : MonoBehaviour
         } else {
             return false;
         }
-    }
-
-    //a higher agility should mean a faster attack rate, but we want the number *increasing* because it feels better. 
-    //An agility of 40 = 1 attack per second. Maybe try and find a better formula for this.
-    public float calculateAttackRate(float agility){
-        return (40 / agility);
-    }
-
-    private List<GameObject> getEnemiesInRange(){
-        List<GameObject> enemiesInRange = new List<GameObject>();
-        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enemy in allEnemies){
-            if(Vector3.Distance(enemy.transform.position, transform.position) < range){
-                enemiesInRange.Add(enemy);
-            }
-        }
-        return enemiesInRange;
     }
 }

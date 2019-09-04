@@ -5,27 +5,21 @@ using UnityEngine;
 public class BlockEnemy : MonoBehaviour
 {
 
-    public float range;
     public int attack;
     public float attackSpeed;
     public int block;
     public int currentlyBlocking;
     public List<GameObject> engagedEnemies;
+    private HeroStats heroStats;
     private float nextAttackTime;
     public Animator animator;
 
-
-    //a higher agility should mean a faster attack rate, but we want the number *increasing* because it feels better. 
-    //An agility of 50 = 1 attack per second. Maybe try and find a better formula for this.
-    public float calculateAttackRate(float agility){
-        return (50 / agility);
-    }
     void Start(){
         //initialize stats
-        attack = GetComponent<HeroStats>().getAttack();
-        attackSpeed = calculateAttackRate(GetComponent<HeroStats>().getAgility());
-        block = GetComponent<HeroStats>().getBlock();
-        range = GetComponent<HeroStats>().getRange();
+        heroStats = GetComponent<HeroStats>();
+        attack = heroStats.getAttack();
+        attackSpeed = Utils.calculateAttackRate(heroStats.getUnitType(), heroStats.getAgility());
+        block = heroStats.getBlock();
         animator = GetComponent<Animator>();
 
         engagedEnemies = new List<GameObject>();
@@ -43,7 +37,9 @@ public class BlockEnemy : MonoBehaviour
         //clean out enemies that have been killed by other units
         sterilizeEngagedEnemies();
         //fetch and block enemies in range
-        List<GameObject> enemiesInRange = getEnemiesInRange();
+        List<GameObject> enemiesInRange = Utils.getEnemiesInRange(transform.position,
+            heroStats.getRange());
+            
         if(enemiesInRange.Count > 0 && currentlyBlocking < block){
             tryToBlockEnemy(enemiesInRange);
         }
@@ -68,20 +64,11 @@ public class BlockEnemy : MonoBehaviour
 
     }
 
-    private List<GameObject> getEnemiesInRange(){
-        List<GameObject> enemiesInRange = new List<GameObject>();
-        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enemy in allEnemies){
-            if(Vector3.Distance(enemy.transform.position, transform.position) < range){
-                enemiesInRange.Add(enemy);
-            }
-        }
-        return enemiesInRange;
-    }
-
     private bool performAttack(GameObject gameObject){
+        Stats enemyStats = gameObject.GetComponent<Stats>();
         animator.Play("Swipe");
-        return gameObject.GetComponent<HealthBar>().dealDamage(attack);
+        int damage = Utils.calculateDamageDealt(enemyStats, attack, heroStats.getMagic());
+        return gameObject.GetComponent<HealthBar>().dealDamage(damage);
     }
 
     private void attackEngagedEnemies(){

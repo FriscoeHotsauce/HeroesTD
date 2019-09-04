@@ -17,6 +17,7 @@ public class MoveToGoal : MonoBehaviour
     private Animator animator;
 
     private NavMeshAgent agent;
+    private EnemyMeleeStats enemyStats;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,10 @@ public class MoveToGoal : MonoBehaviour
         }
         damageToGoal = 1;
         //scrape stats
-        moveSpeed = GetComponent<EnemyMeleeStats>().getMovement();
-        attackSpeed = Utils.calculateAttackRate(GetComponent<EnemyMeleeStats>().getAgility());
-        attack = GetComponent<EnemyMeleeStats>().getAttack();
+        enemyStats = GetComponent<EnemyMeleeStats>();
+        moveSpeed = enemyStats.getMovement();
+        attackSpeed = Utils.calculateAttackRate(enemyStats.GetUnitType(), enemyStats.getAgility());
+        attack = enemyStats.getAttack();
         nextAttackTime = 0.0f;
 
         //set up nav mesh
@@ -50,11 +52,12 @@ public class MoveToGoal : MonoBehaviour
     }
 
     private void attackTarget(){
-        animator.Play("Bite");
-        nextAttackTime = Time.time + attackSpeed;
-        if(targetToAttack.GetComponent<HealthBar>().dealDamage(attack)){
+        int damage = Utils.calculateDamageDealt(targetToAttack.GetComponent<Stats>(), attack, enemyStats.getMagic());
+        if(targetToAttack.GetComponent<HealthBar>().dealDamage(damage)){
             unblockEnemy();
         }
+        nextAttackTime = Time.time + attackSpeed;
+        animator.Play("Bite");
     }
 
     private bool isInRangeOfGoal(){

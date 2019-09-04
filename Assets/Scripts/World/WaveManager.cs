@@ -27,7 +27,7 @@ public class WaveManager : MonoBehaviour
         currentWave = 1;
         waveDelaySet = false;
         startWaves = false;
-        waveLexicon = GetComponents<WaveBuilder>().ToList();
+        waveLexicon = GetComponentsInChildren<WaveBuilder>().ToList();
         totalWaves = getMaxWave();
         setWaveDisplayText();
         waveCooldownRadialDisplay.gameObject.SetActive(false);
@@ -49,6 +49,8 @@ public class WaveManager : MonoBehaviour
                 advanceToNextWave();
                 waveDelaySet = false;
                 waveCooldownRadialDisplay.gameObject.SetActive(false);
+            } else if(currentWave == totalWaves && isWaveEnded()){
+                endGame();
             }
         }
     }
@@ -100,6 +102,12 @@ public class WaveManager : MonoBehaviour
 
     private int getMaxWave(){
         return waveLexicon.Max(x => x.getWaveIndex());
+    }
+
+    private void endGame(){
+        startWaves = false;
+        waveDelaySet = false;
+        Debug.Log("Game Over!");
     }
 
 }

@@ -168,14 +168,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2da068484edf242bb96949bd345c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  Attack: 6
-  Defense: 5
+  Health: 127
+  Attack: 13
+  Magic: 0
+  Defense: 8
   Resistance: 5
   Agility: 50
   block: 2
-  range: 2
+  range: 2.5
   cost: 13
+  unitType: 0
 --- !u!114 &4632301571185754229
 MonoBehaviour:
   m_ObjectHideFlags: 0

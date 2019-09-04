@@ -16,6 +16,7 @@ public abstract class Stats : MonoBehaviour
 {
    public int Health;
    public int Attack;
+   public int Magic;
    public int Defense;
    public int Resistance;
    public float Agility;
@@ -25,6 +26,9 @@ public abstract class Stats : MonoBehaviour
    }
    public int getAttack(){
        return Attack;
+   }
+   public int getMagic(){
+       return Magic;
    }
    public int getDefense(){
        return Defense;
