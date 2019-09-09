@@ -5,11 +5,11 @@ using UnityEngine;
 public class BlockEnemy : MonoBehaviour
 {
 
-    public int attack;
+    public string attackAnimation;
+
     public float attackSpeed;
-    public int block;
-    public int currentlyBlocking;
-    public List<GameObject> engagedEnemies;
+    private List<GameObject> engagedEnemies;
+    private int currentlyBlocking;
     private HeroStats heroStats;
     private float nextAttackTime;
     public Animator animator;
@@ -17,9 +17,7 @@ public class BlockEnemy : MonoBehaviour
     void Start(){
         //initialize stats
         heroStats = GetComponent<HeroStats>();
-        attack = heroStats.getAttack();
         attackSpeed = Utils.calculateAttackRate(heroStats.getUnitType(), heroStats.getAgility());
-        block = heroStats.getBlock();
         animator = GetComponent<Animator>();
 
         engagedEnemies = new List<GameObject>();
@@ -28,6 +26,7 @@ public class BlockEnemy : MonoBehaviour
 
     //death is handled by the healthbar; do cleanup here
     void OnDestroy(){
+        sterilizeEngagedEnemies();
         foreach(GameObject enemy in engagedEnemies){
             enemy.GetComponent<MoveToGoal>().unblockEnemy();
         }
@@ -40,7 +39,7 @@ public class BlockEnemy : MonoBehaviour
         List<GameObject> enemiesInRange = Utils.getEnemiesInRange(transform.position,
             heroStats.getRange());
             
-        if(enemiesInRange.Count > 0 && currentlyBlocking < block){
+        if(enemiesInRange.Count > 0 && currentlyBlocking < heroStats.getBlock()){
             tryToBlockEnemy(enemiesInRange);
         }
         //try to attack enemies
@@ -53,7 +52,7 @@ public class BlockEnemy : MonoBehaviour
 
     private void tryToBlockEnemy(List<GameObject> enemies){
         foreach(GameObject enemy in enemies){
-            if(currentlyBlocking == block){
+            if(currentlyBlocking == heroStats.getBlock()){
                 break;
             } else if(enemy.GetComponent<MoveToGoal>().isBlockable()){
                 enemy.GetComponent<MoveToGoal>().blockEnemy(gameObject);
@@ -66,13 +65,14 @@ public class BlockEnemy : MonoBehaviour
 
     private bool performAttack(GameObject gameObject){
         Stats enemyStats = gameObject.GetComponent<Stats>();
-        animator.Play("Swipe");
-        int damage = Utils.calculateDamageDealt(enemyStats, attack, heroStats.getMagic());
+        animator.Play(attackAnimation);
+        int damage = Utils.calculateDamageDealt(enemyStats, heroStats.getAttack(), heroStats.getMagic());
         return gameObject.GetComponent<HealthBar>().dealDamage(damage);
     }
 
     private void attackEngagedEnemies(){
         if(performAttack(engagedEnemies[0])){
+            heroStats.addExperience(engagedEnemies[0].GetComponent<Stats>().getExperience());
             engagedEnemies.RemoveAt(0);
             currentlyBlocking = currentlyBlocking - 1;
         }

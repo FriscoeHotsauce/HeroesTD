@@ -7,6 +7,7 @@ public class Missile : MonoBehaviour
 
     public Transform targetTransform;
     public Vector3 lastKnownPosition;
+    public HeroStats heroStats;
 
     public float smooth;
     public float speed;
@@ -34,7 +35,9 @@ public class Missile : MonoBehaviour
     }
 
     private void dealDamage(){
-        targetTransform.GetComponent<HealthBar>().dealDamage(missileDamage);
+        if(targetTransform.GetComponent<HealthBar>().dealDamage(missileDamage)){
+            heroStats.addExperience(targetTransform.GetComponent<Stats>().getExperience());
+        }
         Destroy(gameObject);
     }
 
@@ -46,5 +49,9 @@ public class Missile : MonoBehaviour
 
     public void setDamage(int damage){
         missileDamage = damage;
+    }
+
+    public void setHeroStats(HeroStats heroStats){
+        this.heroStats = heroStats;
     }
 }

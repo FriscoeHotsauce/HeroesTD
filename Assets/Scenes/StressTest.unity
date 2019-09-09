@@ -1882,7 +1882,7 @@ PrefabInstance:
     - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
       propertyPath: heroRoster.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
@@ -1895,6 +1895,12 @@ PrefabInstance:
       propertyPath: heroRoster.Array.data[2]
       value: 
       objectReference: {fileID: 8163578713283013859, guid: 991c3b41e89c2aa4dbf0cd01fc3902fc,
+        type: 3}
+    - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: heroRoster.Array.data[3]
+      value: 
+      objectReference: {fileID: 6665974169352101834, guid: 3af9ad01e5c871145aa2be29547bff88,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79257dc37f8c974db50baf7073cd481, type: 3}
@@ -2277,6 +2283,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
+        type: 3}
+      propertyPath: waveDisplay
+      value: 
+      objectReference: {fileID: 509188174}
+    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
+        type: 3}
+      propertyPath: waveCooldown
+      value: 
+      objectReference: {fileID: 2124657781}
+    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
+        type: 3}
+      propertyPath: waveCooldownRadialDisplay
+      value: 
+      objectReference: {fileID: 1455599857}
+    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
+        type: 3}
+      propertyPath: waveDelay
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2337062350166716803, guid: 4f87174faf21b1b468a04e097977e096,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2331,26 +2357,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
-        type: 3}
-      propertyPath: waveDisplay
-      value: 
-      objectReference: {fileID: 509188174}
-    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
-        type: 3}
-      propertyPath: waveCooldown
-      value: 
-      objectReference: {fileID: 2124657781}
-    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
-        type: 3}
-      propertyPath: waveCooldownRadialDisplay
-      value: 
-      objectReference: {fileID: 1455599857}
-    - target: {fileID: 4637333606899877881, guid: 4f87174faf21b1b468a04e097977e096,
-        type: 3}
-      propertyPath: waveDelay
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f87174faf21b1b468a04e097977e096, type: 3}

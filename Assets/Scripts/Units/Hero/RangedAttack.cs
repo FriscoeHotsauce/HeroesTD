@@ -11,9 +11,11 @@ public class RangedAttack : MonoBehaviour
   public GameObject currentTarget;
   private HeroStats heroStats;
   private float nextAttackTime;
+  private Animator animator;
 
     void Start(){
         heroStats = GetComponent<HeroStats>();
+        animator = GetComponent<Animator>();
         attack = heroStats.getAttack();
         attackSpeed = Utils.calculateAttackRate(heroStats.getUnitType(), heroStats.getAgility());
         range = heroStats.getRange();
@@ -51,13 +53,16 @@ public class RangedAttack : MonoBehaviour
     }
 
     private void fireMissile(){
-        if(currentTarget != null){            
+        if(currentTarget != null){
+            animator.Play("Archer_Attack");            
             Stats enemyStats = currentTarget.transform.GetComponent<Stats>();
             int damage = Utils.calculateDamageDealt(enemyStats, heroStats.getAttack(), heroStats.getMagic());
             
             Transform missile = Instantiate(missilePrefab, transform.position, transform.rotation);
             missile.GetComponent<Missile>().setTarget(currentTarget.transform);
             missile.GetComponent<Missile>().setDamage(damage);
+            missile.GetComponent<Missile>().setHeroStats(heroStats);
+
         }
     }
 

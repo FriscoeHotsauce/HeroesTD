@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +11,12 @@ public class HealthBar : MonoBehaviour
     public int currentHealth;
     public GameObject healthBarCanvas;
     public Image healthBar;
+    public Animator healthBarAnimator;
     private bool isHealthBarActive;
 
     void Start()
     {
-        maxHealth = GetComponent<Stats>().getHealth();
+        maxHealth = GetComponentInParent<Stats>().getHealth();
         currentHealth = maxHealth;
         healthBarCanvas.SetActive(false);
         isHealthBarActive = false;
@@ -36,6 +38,10 @@ public class HealthBar : MonoBehaviour
         return maxHealth;
     }
 
+    public void addMaxHealth(int health){
+        maxHealth = maxHealth + health;
+    }
+
     public int getMaxHealth(int overheal){
         return maxHealth + overheal;
     }
@@ -54,7 +60,7 @@ public class HealthBar : MonoBehaviour
     }
 
     public void heal(int magic, int overheal){
-        int health = magic/4;
+        int health = (int) Math.Round(magic/1.5);
         currentHealth = (health + currentHealth) > getMaxHealth(overheal) ? getMaxHealth(overheal) : health + currentHealth;
         renderHealthDisplay();
     }
@@ -65,5 +71,10 @@ public class HealthBar : MonoBehaviour
             healthBarCanvas.SetActive(true);
             isHealthBarActive = true;
         }
+    }
+
+    public void playLevelUpAnimation(){
+        showHealthBar();
+        healthBarAnimator.Play("LevelUp");
     }
 }
