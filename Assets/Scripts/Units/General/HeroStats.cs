@@ -72,4 +72,21 @@ public class HeroStats : Stats
         Level = Level + 1;
         nextLevelXp = nextLevelXp + 100 + (Level * 10);//todo create some kind of MATH to calculate next level XP
    }
+
+    //b o i l e r p l a t e
+    public void loadStats(SaveStats saveStats){
+        this.Health = saveStats.health;
+        this.Attack = saveStats.attack;
+        this.Magic = saveStats.magic;
+        this.Defense = saveStats.defense;
+        this.Resistance = saveStats.resistance;
+        this.Agility = saveStats.agility;
+        this.Experience = saveStats.experience;
+        this.Block = saveStats.block;
+        this.Range = saveStats.range;
+        this.Cost = saveStats.cost;
+        this.Level = saveStats.level;
+        this.currentXp = saveStats.currentXp;
+        this.nextLevelXp = saveStats.nextLevelXp;
+   }
 }
