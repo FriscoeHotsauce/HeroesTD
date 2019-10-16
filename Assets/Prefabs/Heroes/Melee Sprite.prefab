@@ -124,7 +124,7 @@ MonoBehaviour:
   Agility: 40
   Experience: 0
   Block: 2
-  Range: 2.5
+  Range: 1.5
   Cost: 13
   UnitType: 0
   Level: 1

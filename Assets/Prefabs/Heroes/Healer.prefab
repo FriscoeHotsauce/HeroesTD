@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ec7ac19a9899746a631490afcf8e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAnimationName: Healer_Attack
+  healAnimationName: Healer_Heal
   attackSpeed: 0
   currentTarget: {fileID: 0}
   alliesInRange: []
@@ -134,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdbd337d45ff33418d32f939e028c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathAnimationName: 
+  deathAnimationName: Die
 --- !u!114 &8163578713283013916
 MonoBehaviour:
   m_ObjectHideFlags: 0

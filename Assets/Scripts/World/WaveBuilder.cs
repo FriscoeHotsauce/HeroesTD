@@ -9,54 +9,69 @@ using UnityEngine;
 [System.Serializable]
 public class WaveBuilder : MonoBehaviour
 {
-    public int waveIndex;
-    public float spawnInterval;
-    public Transform spawnLocation;
-    public Transform spawnPrefab;
-    public int unitsToSpawn;
-    private int unitsSpawned;
-    private float nextSpawnTime;
+  public int waveIndex;
+  public float spawnInterval;
+  public float initialSpawnDelay;
+  public Transform spawnLocation;
+  public Transform spawnPrefab;
+  public int unitsToSpawn;
+  private int unitsSpawned;
+  private float nextSpawnTime;
 
-    public WaveBuilder(
-        int waveIndex,
-        float spawnInterval,
-        Transform spawnLocation,
-        Transform spawnPrefab,
-        int unitsToSpawn
-    ) {
-        this.waveIndex = waveIndex;
-        this.spawnInterval = spawnInterval;
-        this.spawnLocation = spawnLocation;
-        this.spawnPrefab = spawnPrefab;
-        this.unitsToSpawn = unitsToSpawn;
-        unitsSpawned = 0;
-        nextSpawnTime = 0.0f;
-    }
+  public WaveBuilder(
+      int waveIndex,
+      float spawnInterval,
+      float initialSpawnDelay,
+      Transform spawnLocation,
+      Transform spawnPrefab,
+      int unitsToSpawn
+  )
+  {
+    this.waveIndex = waveIndex;
+    this.spawnInterval = spawnInterval;
+    this.initialSpawnDelay = initialSpawnDelay;
+    this.spawnLocation = spawnLocation;
+    this.spawnPrefab = spawnPrefab;
+    this.unitsToSpawn = unitsToSpawn;
+    unitsSpawned = 0;
+    nextSpawnTime = 0.0f;
+  }
 
-    public int getWaveIndex(){
-        return waveIndex;
-    }
+  public int getWaveIndex()
+  {
+    return waveIndex;
+  }
 
-    public float getSpawnInterval(){
-        return spawnInterval;
-    }
-    
-    public float getNextSpawnTime(){
-        return nextSpawnTime;
-    }
+  public float getSpawnInterval()
+  {
+    return spawnInterval;
+  }
 
-    public int getUnitsToSpawn(){
-        return unitsToSpawn;
-    }
+  public float getNextSpawnTime()
+  {
+    return nextSpawnTime;
+  }
 
-    public int getUnitsSpawned(){
-        return unitsSpawned;
-    }
+  public int getUnitsToSpawn()
+  {
+    return unitsToSpawn;
+  }
 
-    public void spawnEnemy(){
-        Transform created = Instantiate(spawnPrefab, spawnLocation.position, spawnLocation.rotation);
-        created.name = "Wave "+waveIndex+" - "+spawnLocation.name+" - "+unitsSpawned;
-        unitsSpawned += 1;
-        nextSpawnTime = Time.time + spawnInterval;
-    }
+  public int getUnitsSpawned()
+  {
+    return unitsSpawned;
+  }
+
+  public void spawnEnemy()
+  {
+    Transform created = Instantiate(spawnPrefab, spawnLocation.position, spawnLocation.rotation);
+    created.name = "Wave " + waveIndex + " - " + spawnLocation.name + " - " + unitsSpawned;
+    unitsSpawned += 1;
+    nextSpawnTime = Time.time + spawnInterval;
+  }
+
+  public void setInitialDelay()
+  {
+    nextSpawnTime = Time.time + initialSpawnDelay;
+  }
 }

@@ -1788,11 +1788,6 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 8201847374217523544, guid: d79257dc37f8c974db50baf7073cd481,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 8201847374589026672, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1898,20 +1893,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8201847373764230841, guid: d79257dc37f8c974db50baf7073cd481,
-        type: 3}
-      propertyPath: m_Name
-      value: Radial
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201847373666971298, guid: d79257dc37f8c974db50baf7073cd481,
-        type: 3}
-      propertyPath: waveManager
-      value: 
-      objectReference: {fileID: 624303707}
     - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
       propertyPath: heroRoster.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
@@ -1931,6 +1916,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6665974169352101834, guid: 3af9ad01e5c871145aa2be29547bff88,
         type: 3}
+    - target: {fileID: 8201847373852859836, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: heroRoster.Array.data[4]
+      value: 
+      objectReference: {fileID: 922011450657696887, guid: f0322a9fc0eeadf4a9b14eb1642d3046,
+        type: 3}
+    - target: {fileID: 8201847374217523544, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8201847374589026673, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
       propertyPath: m_RenderMode
@@ -1946,11 +1942,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 632486312}
-    - target: {fileID: 8201847374375247772, guid: d79257dc37f8c974db50baf7073cd481,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8201847373801055916, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}
       propertyPath: m_RootOrder
@@ -1960,6 +1951,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201847373764230841, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: m_Name
+      value: Radial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201847373666971298, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 624303707}
+    - target: {fileID: 8201847374375247772, guid: d79257dc37f8c974db50baf7073cd481,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8201847373137851359, guid: d79257dc37f8c974db50baf7073cd481,
         type: 3}

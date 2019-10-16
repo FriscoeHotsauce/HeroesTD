@@ -21,7 +21,7 @@ public class SelectHeroButton : MonoBehaviour
     public void spawnHeroAtLocation(){
         Vector3 hardpointLocation = heroSelector.getLastHardpointSelected().position;
         Transform createdUnit = Instantiate(heroPrefab, new Vector3(hardpointLocation.x, 
-            hardpointLocation.y + heroPrefab.lossyScale.y, hardpointLocation.z), heroPrefab.rotation);
+            hardpointLocation.y + 1, hardpointLocation.z), heroPrefab.rotation);
         createdUnit.GetComponent<FreeHardpoint>().setHardpoint(heroSelector.getLastHardpointSelected().GetComponent<Hardpoint>());
         heroSelector.GetComponent<Animator>().Play("SlideDown");
         requisitionManager.deductPoints(heroStats.getCost());

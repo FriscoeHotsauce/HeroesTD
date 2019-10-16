@@ -6,6 +6,8 @@ using UnityEngine;
 public class HealAllies : MonoBehaviour
 {
     public enum BehaviourState { Attack, Heal }
+    public string attackAnimationName;
+    public string healAnimationName;
     public float attackSpeed;
     public GameObject currentTarget;
     public List<GameObject> alliesInRange;
@@ -63,7 +65,7 @@ public class HealAllies : MonoBehaviour
 
     private void healOrDamage(){
         if(currentTarget.tag == "Hero"){
-            animator.Play("Healer_Heal");
+            animator.Play(healAnimationName);
             currentTarget.GetComponent<HealthBar>().heal(heroStats.getMagic(), overheal);
             heroStats.addExperience(1);
         } else {
@@ -73,7 +75,7 @@ public class HealAllies : MonoBehaviour
 
      private void fireMissile(){
         if(currentTarget != null){
-            animator.Play("Healer_Attack");            
+            animator.Play(attackAnimationName);            
             Stats enemyStats = currentTarget.transform.GetComponent<Stats>();
             int damage = Utils.calculateDamageDealt(enemyStats, heroStats.getAttack(), heroStats.getMagic());
             
