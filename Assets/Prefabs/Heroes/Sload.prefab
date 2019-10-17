@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 922011450657696887}
   - component: {fileID: 922011450657696880}
-  - component: {fileID: 922011450657696881}
   - component: {fileID: 922011450657696882}
   - component: {fileID: 922011450657696883}
   - component: {fileID: 922011450657696876}
   - component: {fileID: 922011450657696877}
   - component: {fileID: 922011450657696878}
   - component: {fileID: 922011450657696879}
+  - component: {fileID: 6704695517727428145}
   m_Layer: 0
   m_Name: Sload
   m_TagString: Untagged
@@ -89,26 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &922011450657696881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922011450657696872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ec7ac19a9899746a631490afcf8e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackAnimationName: Attack
-  healAnimationName: Heal
-  attackSpeed: 0
-  currentTarget: {fileID: 0}
-  alliesInRange: []
-  overheal: 0
-  missilePrefab: {fileID: 5323351598377361852, guid: 3fb2ae8911e6cf54b8b67b9b264b737d,
-    type: 3}
 --- !u!114 &922011450657696882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +191,25 @@ MonoBehaviour:
   healthBarCanvas: {fileID: 2093443470930052239}
   healthBar: {fileID: 5009113045296448128}
   healthBarAnimator: {fileID: 500186727461456608}
+--- !u!114 &6704695517727428145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922011450657696872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb722be2098beed4e94daf8f25c32062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  attack: 0
+  attackSpeed: 0
+  missilePrefab: {fileID: 4997150240289652765, guid: ed469e73fea5b464b8c070758b1c9928,
+    type: 3}
+  currentTarget: {fileID: 0}
+  attackAnimationName: Attack
 --- !u!1001 &922011451351693694
 PrefabInstance:
   m_ObjectHideFlags: 0

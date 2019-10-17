@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6557227333961929962}
   - component: {fileID: 8713435411369804837}
   - component: {fileID: 7009708727660616500}
-  - component: {fileID: 3112182452456369722}
   m_Layer: 0
   m_Name: simple arrow
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3810502355145219362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,18 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
   lastKnownPosition: {x: 0, y: 0, z: 0}
+  heroStats: {fileID: 0}
   smooth: 0
   speed: 5
   missileDamage: 0
---- !u!114 &3112182452456369722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810502355145219362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e0dd261c8cd7948a65903c2ecee063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

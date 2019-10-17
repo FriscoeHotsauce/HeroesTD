@@ -72,6 +72,7 @@ MonoBehaviour:
   missilePrefab: {fileID: 6557227333961929962, guid: 6e7b78ec12767ae4bb74b11027bf8ef5,
     type: 3}
   currentTarget: {fileID: 0}
+  attackAnimationName: Archer_Attack
 --- !u!114 &341712647
 MonoBehaviour:
   m_ObjectHideFlags: 0
