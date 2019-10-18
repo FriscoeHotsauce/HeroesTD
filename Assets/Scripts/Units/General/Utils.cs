@@ -5,6 +5,8 @@ using UnityEngine;
 public class Utils
 {
   public enum UnitType { Melee, Ranged }
+  public enum UnitAlignment { Hero, Enemy }
+
   //a higher agility should mean a faster attack rate, but we want the number *increasing* because it feels better. 
   //An agility of 50 = 1 attack per second. Maybe try and find a better formula for this.
   public static float calculateAttackRate(UnitType unitType, float agility)
@@ -30,7 +32,7 @@ public class Utils
     return getTaggedObjectsInRange(targetPosition, range, "Hero");
   }
 
-  private static List<GameObject> getTaggedObjectsInRange(Vector3 position, float range, string tag)
+  public static List<GameObject> getTaggedObjectsInRange(Vector3 position, float range, string tag)
   {
     List<GameObject> objectsInRange = new List<GameObject>();
     GameObject[] allObjects = GameObject.FindGameObjectsWithTag(tag);

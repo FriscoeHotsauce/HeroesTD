@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Missile : MonoBehaviour
+public class Missile : MonoBehaviour
 {
 
   public Transform targetTransform;
+  public Transform sourceTransform;
   public Vector3 lastKnownPosition;
-  public HeroStats heroStats;
+  public Stats sourceStats;
 
   public float smooth;
   public float speed;
@@ -60,9 +61,18 @@ public abstract class Missile : MonoBehaviour
   {
     if (targetTransform.GetComponent<HealthBar>().dealDamage(missileDamage))
     {
-      heroStats.addExperience(targetTransform.GetComponent<Stats>().getExperience());
+      applyExperienceIfHero();
     }
     Destroy(gameObject);
+  }
+
+  public void applyExperienceIfHero()
+  {
+    if (sourceStats is HeroStats)
+    {
+      HeroStats heroStats = sourceStats as HeroStats;
+      heroStats.addExperience(targetTransform.GetComponent<Stats>().getExperience());
+    }
   }
 
   public void setTarget(Transform target)
@@ -77,8 +87,8 @@ public abstract class Missile : MonoBehaviour
     missileDamage = damage;
   }
 
-  public void setHeroStats(HeroStats heroStats)
+  public void setSourceStats(Stats sourceStats)
   {
-    this.heroStats = heroStats;
+    this.sourceStats = sourceStats;
   }
 }

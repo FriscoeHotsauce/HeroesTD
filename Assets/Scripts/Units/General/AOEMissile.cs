@@ -13,7 +13,7 @@ public class AOEMissile : Missile
     {
       if (enemy.GetComponent<HealthBar>().dealDamage(missileDamage))
       {
-        heroStats.addExperience(enemy.GetComponent<Stats>().getExperience());
+        applyExperienceIfHero();
       }
     });
     explode();

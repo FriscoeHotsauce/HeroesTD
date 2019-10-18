@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+  sourceTransform: {fileID: 0}
   lastKnownPosition: {x: 0, y: 0, z: 0}
-  heroStats: {fileID: 0}
+  sourceStats: {fileID: 0}
   smooth: 0
   speed: 5
   missileDamage: 0

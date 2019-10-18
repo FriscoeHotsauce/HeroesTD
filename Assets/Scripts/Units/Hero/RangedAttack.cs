@@ -75,7 +75,7 @@ public class RangedAttack : MonoBehaviour
       Transform missile = Instantiate(missilePrefab, transform.position, transform.rotation);
       missile.GetComponent<Missile>().setTarget(currentTarget.transform);
       missile.GetComponent<Missile>().setDamage(damage);
-      missile.GetComponent<Missile>().setHeroStats(heroStats);
+      missile.GetComponent<Missile>().setSourceStats(heroStats);
 
     }
   }
