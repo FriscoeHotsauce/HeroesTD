@@ -122,7 +122,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   alliesInRange: []
   overheal: 0
-  missilePrefab: {fileID: 2068709231935398739, guid: 94f70bfd7ff3f8b4e921abefb22a04ce,
+  missilePrefab: {fileID: 6557227333961929962, guid: 6e7b78ec12767ae4bb74b11027bf8ef5,
     type: 3}
 --- !u!114 &8163578713283013917
 MonoBehaviour:
@@ -183,10 +183,10 @@ MonoBehaviour:
   Resistance: 10
   Agility: 35
   Experience: 0
+  UnitType: 1
   Block: 0
   Range: 7
   Cost: 14
-  UnitType: 1
   Level: 1
   currentXp: 0
   nextLevelXp: 100

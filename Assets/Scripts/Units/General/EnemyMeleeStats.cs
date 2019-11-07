@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class EnemyMeleeStats : Stats
 {
-    public float movement;
+  public float movement;
 
-    public float getMovement(){
-        return movement;
-    }
-
-    public Utils.UnitType GetUnitType(){
-        return Utils.UnitType.Melee;
-    }
+  public float getMovement()
+  {
+    return movement;
+  }
 }

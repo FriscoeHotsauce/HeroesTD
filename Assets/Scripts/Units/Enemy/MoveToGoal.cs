@@ -31,7 +31,7 @@ public class MoveToGoal : MonoBehaviour
     //scrape stats
     enemyStats = GetComponent<EnemyMeleeStats>();
     moveSpeed = enemyStats.getMovement();
-    attackSpeed = Utils.calculateAttackRate(enemyStats.GetUnitType(), enemyStats.getAgility());
+    attackSpeed = Utils.calculateAttackRate(enemyStats.getUnitType(), enemyStats.getAgility());
     attack = enemyStats.getAttack();
     nextAttackTime = 0.0f;
 

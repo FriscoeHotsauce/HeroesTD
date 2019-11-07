@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
-    This clas provides the base stats of the unit
+    This class provides the base stats of the unit
 
     @property Health
     @property Attack
@@ -16,63 +16,83 @@ using UnityEngine;
  */
 public abstract class Stats : MonoBehaviour
 {
-   public int Health;
-   public int Attack;
-   public int Magic;
-   public int Defense;
-   public int Resistance;
-   public float Agility;
-   public int Experience;
+  public int Health;
+  public int Attack;
+  public int Magic;
+  public int Defense;
+  public int Resistance;
+  public float Agility;
+  public int Experience;
+  public Utils.UnitType UnitType;
 
-    public int getHealth(){
-        return Health;
-    }
 
-    public void addHealth(int health){
-        Health = Health + health;
-    }
+  public int getHealth()
+  {
+    return Health;
+  }
 
-    public int getAttack(){
-        return Attack;
-    }
+  public void addHealth(int health)
+  {
+    Health = Health + health;
+  }
 
-    public void addAttack(int attack){
-        Attack = Attack + attack;
-    }
+  public int getAttack()
+  {
+    return Attack;
+  }
 
-    public int getMagic(){
-        return Magic;
-    }
+  public void addAttack(int attack)
+  {
+    Attack = Attack + attack;
+  }
 
-    public void addMagic(int magic){
-        Magic = Magic + magic;
-    }
+  public int getMagic()
+  {
+    return Magic;
+  }
 
-    public int getDefense(){
-        return Defense;
-    }
+  public void addMagic(int magic)
+  {
+    Magic = Magic + magic;
+  }
 
-    public void addDefense(int defense){
-        Defense = Defense + defense;
-    }
+  public int getDefense()
+  {
+    return Defense;
+  }
 
-    public int getResistance(){
-        return Resistance;
-    }
+  public void addDefense(int defense)
+  {
+    Defense = Defense + defense;
+  }
 
-    public void addResistance(int resistance){
-        Resistance = Resistance + resistance;
-    }
+  public int getResistance()
+  {
+    return Resistance;
+  }
 
-    public float getAgility(){
-        return Agility;
-    }
+  public void addResistance(int resistance)
+  {
+    Resistance = Resistance + resistance;
+  }
 
-    public void addAgility(float agility){
-        Agility = Agility + agility;
-    }
+  public float getAgility()
+  {
+    return Agility;
+  }
 
-    public int getExperience(){
-        return Experience;
-    }
+  public void addAgility(float agility)
+  {
+    Agility = Agility + agility;
+  }
+
+  public int getExperience()
+  {
+    return Experience;
+  }
+
+  public Utils.UnitType getUnitType()
+  {
+    return UnitType;
+  }
 }

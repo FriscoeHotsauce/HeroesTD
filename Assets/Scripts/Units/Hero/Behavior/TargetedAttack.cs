@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TargetedAttack : MonoBehaviour, TargetedBehavior
+public class TargetedAttack : MonoBehaviour, TimedBehavior
 {
   public string animationName;
   public Transform missilePrefab;
@@ -11,7 +11,9 @@ public abstract class TargetedAttack : MonoBehaviour, TargetedBehavior
   private GameObject currentTarget;
   private Stats sourceStats;
   private Animator animator;
-  private float range;
+  public float range;
+  private float attackSpeed;
+  private float nextAttackTime;
 
 
   void Start()
@@ -19,9 +21,28 @@ public abstract class TargetedAttack : MonoBehaviour, TargetedBehavior
     animator = GetComponent<Animator>();
     sourceStats = GetComponent<Stats>();
     range = findRangeInSourceStats();
+
+    attackSpeed = Utils.calculateAttackRate(sourceStats.getUnitType(), sourceStats.getAgility());
+    nextAttackTime = 0.0f;
   }
 
-  public virtual bool acquireTarget()
+  public virtual bool shouldExecute()
+  {
+    bool execute = Time.time > nextAttackTime && acquireTarget();
+    if (execute)
+    {
+      resetCooldown();
+    }
+    return execute;
+  }
+
+  public virtual void executeBehavior()
+  {
+    fireMissile();
+  }
+
+
+  private bool acquireTarget()
   {
     if (isCurrentTargetInRange())
     {
@@ -33,14 +54,9 @@ public abstract class TargetedAttack : MonoBehaviour, TargetedBehavior
     }
   }
 
-  public virtual bool shouldExecute()
+  public virtual void resetCooldown()
   {
-    return acquireTarget();
-  }
-
-  public virtual void executeBehavior()
-  {
-    fireMissile();
+    nextAttackTime = Time.time + attackSpeed;
   }
 
   private void fireMissile()
@@ -104,6 +120,7 @@ public abstract class TargetedAttack : MonoBehaviour, TargetedBehavior
     {
       return (sourceStats as HeroStats).getRange();
     }
+    //todo ian.harris 10/17/2019 add enemy ranged stats when they exist
     else
     {
       Debug.Log("Range not found on source stats! Did you attach this behavior to the right unit?");
