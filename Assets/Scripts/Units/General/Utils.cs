@@ -45,4 +45,9 @@ public class Utils
     }
     return objectsInRange;
   }
+
+  public static bool enemiesExist()
+  {
+    return GameObject.FindGameObjectsWithTag("Enemy").Length != 0;
+  }
 }

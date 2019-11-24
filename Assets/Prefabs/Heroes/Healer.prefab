@@ -9,18 +9,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8163578713283013859}
-  - component: {fileID: 5431456430218481976}
   - component: {fileID: 8163578713283013856}
+  - component: {fileID: 5431456430218481976}
   - component: {fileID: 8163578713283013919}
   - component: {fileID: 8163578713283013917}
   - component: {fileID: 8163578713283013916}
-  - component: {fileID: 7511276541040295213}
   - component: {fileID: -7085087860266171383}
   - component: {fileID: 5767148091096942571}
   - component: {fileID: 4218275223514529971}
+  - component: {fileID: 4630362157998381634}
   m_Layer: 0
   m_Name: Healer
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8163578713283013856
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163578713283013863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!212 &5431456430218481976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,20 +104,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!136 &8163578713283013856
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163578713283013863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &8163578713283013919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,20 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardpoint: {fileID: 0}
---- !u!114 &7511276541040295213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163578713283013863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroHeadshot: {fileID: 4901502580501146993, guid: b634716ab69416c47a2da5f757173f1b,
-    type: 3}
 --- !u!114 &-7085087860266171383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +212,23 @@ MonoBehaviour:
   healthBarCanvas: {fileID: 6956962666200802543}
   healthBar: {fileID: 4035945273367962336}
   healthBarAnimator: {fileID: 8894743662359784064}
+--- !u!114 &4630362157998381634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163578713283013863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f58f77607f634ca063f8b82eba493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: 7275587250928016836, guid: b634716ab69416c47a2da5f757173f1b,
+    type: 3}
+  heroProfile: {fileID: 4901502580501146993, guid: b634716ab69416c47a2da5f757173f1b,
+    type: 3}
+  heroDisplayName: Healer
 --- !u!1001 &8163578712189622558
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,58 +15,67 @@ using UnityEngine.UI;
 public class RequisitionManager : MonoBehaviour
 {
 
-    public int startingRequisitionPoints;
-    public int currentRequisitionPoints;
-    public int requsitionPointsPerTick;
-    public float requisitionPointDelay;
-    public string requisitionTextPrefix = "REQ: ";
-    public Text requisitionDisplayText;
-    public Image requisitionCooldownDisplay;
+  public int startingRequisitionPoints;
+  public int currentRequisitionPoints;
+  public int requsitionPointsPerTick;
+  public float requisitionPointDelay;
+  public string requisitionTextPrefix = "REQ: ";
+  public Text requisitionDisplayText;
+  public Image requisitionCooldownDisplay;
 
-    public float nextRequisitionPoint;
-    private WaveManager waveManager;
-    private HeroSelector heroSelector;
+  public float nextRequisitionPoint;
+  private WaveManager waveManager;
+  private HeroSelector heroSelector;
 
-    void Start(){
-        waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
-        currentRequisitionPoints = startingRequisitionPoints;
-        setRequisitionPointsView();
-        nextRequisitionPoint = 0.0f;
-        heroSelector = GameObject.FindWithTag("HeroSelector").GetComponent<HeroSelector>();
-    }
+  void Start()
+  {
+    waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
+    currentRequisitionPoints = startingRequisitionPoints;
+    setRequisitionPointsView();
+    nextRequisitionPoint = 0.0f;
+    heroSelector = GameObject.FindWithTag("HeroSelector").GetComponent<HeroSelector>();
+  }
 
-    void Update(){
-        requisitionCooldownDisplay.fillAmount = (nextRequisitionPoint - Time.time) / requisitionPointDelay;
-    }
+  void Update()
+  {
+    requisitionCooldownDisplay.fillAmount = (nextRequisitionPoint - Time.time) / requisitionPointDelay;
+  }
 
-    void FixedUpdate()
+  void FixedUpdate()
+  {
+    //Debug.Log("Waves Started "+ waveManager.getWavesStarted());
+    if (waveManager.getGameState() == WaveManager.GameState.WavesInProgress
+    || waveManager.getGameState() == WaveManager.GameState.WavesConcluded)
     {
-        //Debug.Log("Waves Started "+ waveManager.getWavesStarted());
-        if(waveManager.getWavesStarted()){
-            if(Time.time > nextRequisitionPoint){
-                applyPointsAndUpdateTime();
-            }
-        }   
+      if (Time.time > nextRequisitionPoint)
+      {
+        applyPointsAndUpdateTime();
+      }
     }
+  }
 
-    public void deductPoints(int pointsToDeduct){
-        currentRequisitionPoints = currentRequisitionPoints - pointsToDeduct;
-        setRequisitionPointsView();
-        heroSelector.updateButtonValidity();
-    }
+  public void deductPoints(int pointsToDeduct)
+  {
+    currentRequisitionPoints = currentRequisitionPoints - pointsToDeduct;
+    setRequisitionPointsView();
+    heroSelector.updateButtonValidity();
+  }
 
-    public int getCurrentRequisitionPoints(){
-        return currentRequisitionPoints;
-    }
+  public int getCurrentRequisitionPoints()
+  {
+    return currentRequisitionPoints;
+  }
 
-    private void applyPointsAndUpdateTime(){
-        currentRequisitionPoints = currentRequisitionPoints + requsitionPointsPerTick;
-        nextRequisitionPoint = Time.time + requisitionPointDelay;
-        setRequisitionPointsView();
-        heroSelector.updateButtonValidity();
-    }
+  private void applyPointsAndUpdateTime()
+  {
+    currentRequisitionPoints = currentRequisitionPoints + requsitionPointsPerTick;
+    nextRequisitionPoint = Time.time + requisitionPointDelay;
+    setRequisitionPointsView();
+    heroSelector.updateButtonValidity();
+  }
 
-    private void setRequisitionPointsView(){
-        requisitionDisplayText.text = requisitionTextPrefix+currentRequisitionPoints;
-    }
+  private void setRequisitionPointsView()
+  {
+    requisitionDisplayText.text = requisitionTextPrefix + currentRequisitionPoints;
+  }
 }

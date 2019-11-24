@@ -47,6 +47,16 @@ public class HeroStats : Stats
     Cost = Cost + cost;
   }
 
+  public int getExperience()
+  {
+    return currentXp;
+  }
+
+  public int getNextLevelExperience()
+  {
+    return nextLevelXp;
+  }
+
   public void addExperience(int xp)
   {
     currentXp = currentXp + xp;
@@ -54,6 +64,11 @@ public class HeroStats : Stats
     {
       levelUp();
     }
+  }
+
+  public int getLevel()
+  {
+    return Level;
   }
 
   private void levelUp()

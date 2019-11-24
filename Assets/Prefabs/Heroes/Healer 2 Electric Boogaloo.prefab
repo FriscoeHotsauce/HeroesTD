@@ -373,20 +373,20 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6855593059933583922}
-  - component: {fileID: 7280428192739543017}
   - component: {fileID: 6855593059933583921}
+  - component: {fileID: 7280428192739543017}
   - component: {fileID: 6855593059933584332}
   - component: {fileID: 6855593059933584333}
-  - component: {fileID: 5067750458592570364}
   - component: {fileID: 3730555162682643160}
   - component: {fileID: 9106323133667873082}
   - component: {fileID: 1505184079140591202}
   - component: {fileID: 6274395864881266036}
   - component: {fileID: 6855593059933583929}
   - component: {fileID: -4161303225948763223}
+  - component: {fileID: 7937123219819129490}
   m_Layer: 0
   m_Name: Healer 2 Electric Boogaloo
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +406,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6855593059933583921
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855593059933583926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!212 &7280428192739543017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -456,20 +470,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!136 &6855593059933583921
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855593059933583926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &6855593059933584332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,20 +496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardpoint: {fileID: 0}
---- !u!114 &5067750458592570364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855593059933583926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroHeadshot: {fileID: 4901502580501146993, guid: b634716ab69416c47a2da5f757173f1b,
-    type: 3}
 --- !u!114 &3730555162682643160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,3 +603,20 @@ MonoBehaviour:
   targetAlignment: 0
   range: 15
   overheal: 0
+--- !u!114 &7937123219819129490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855593059933583926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f58f77607f634ca063f8b82eba493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: 7275587250928016836, guid: b634716ab69416c47a2da5f757173f1b,
+    type: 3}
+  heroProfile: {fileID: 4901502580501146993, guid: b634716ab69416c47a2da5f757173f1b,
+    type: 3}
+  heroDisplayName: AOE Healer

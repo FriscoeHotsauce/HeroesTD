@@ -18,16 +18,18 @@ public class WaveManager : MonoBehaviour
   public int totalWaves;
   public float nextWaveStart;
   public float waveDelay;
-  public bool startWaves;
+  public GameState currentGameState;
 
   //a boolean to tell us if we should be waiting for the next wave to start
   private bool waveDelaySet;
+
+  public enum GameState { Preparation, WavesInProgress, WavesConcluded, EnemiesCleared }
 
   void Start()
   {
     currentWave = 1;
     waveDelaySet = false;
-    startWaves = false;
+    currentGameState = GameState.Preparation;
     waveLexicon = GetComponentsInChildren<WaveBuilder>().ToList();
     totalWaves = getMaxWave();
     setWaveDisplayText();
@@ -41,13 +43,17 @@ public class WaveManager : MonoBehaviour
 
   void FixedUpdate()
   {
-    if (startWaves)
+    if (currentGameState == GameState.WavesInProgress || currentGameState == GameState.WavesConcluded)
     {
       if (!isWaveEnded())
       {
         advanceTimeAndSpawnEnemies();
       }
-      else if (!waveDelaySet)
+      else if (currentWave == totalWaves && isWaveEnded() && currentGameState != GameState.EnemiesCleared)
+      {
+        endGame();
+      }
+      else if (!waveDelaySet && currentGameState == GameState.WavesInProgress)
       {
         nextWaveStart = Time.time + waveDelay;
         waveDelaySet = true;
@@ -59,16 +65,13 @@ public class WaveManager : MonoBehaviour
         waveDelaySet = false;
         waveCooldownRadialDisplay.gameObject.SetActive(false);
       }
-      else if (currentWave == totalWaves && isWaveEnded())
-      {
-        endGame();
-      }
+
     }
   }
 
   public void begin()
   {
-    startWaves = true;
+    currentGameState = GameState.WavesInProgress;
     setInitialWaveDelays();
   }
 
@@ -87,8 +90,8 @@ public class WaveManager : MonoBehaviour
   public bool isWaveEnded()
   {
     //how bout them lambdas
-    return waveLexicon.Where(wave => wave.getWaveIndex() == currentWave)
-        .Where(wave => wave.getUnitsSpawned() < wave.getUnitsToSpawn()).ToList().Count == 0;
+    return (waveLexicon.Where(wave => wave.getWaveIndex() == currentWave)
+        .Where(wave => wave.getUnitsSpawned() < wave.getUnitsToSpawn()).ToList().Count == 0);
   }
 
 
@@ -109,9 +112,9 @@ public class WaveManager : MonoBehaviour
     return currentWave;
   }
 
-  public bool getWavesStarted()
+  public GameState getGameState()
   {
-    return startWaves;
+    return currentGameState;
   }
 
   private void setWaveDisplayText()
@@ -139,9 +142,13 @@ public class WaveManager : MonoBehaviour
 
   private void endGame()
   {
-    startWaves = false;
+    currentGameState = GameState.WavesConcluded;
     waveDelaySet = false;
-    Debug.Log("Game Over!");
+    if (!Utils.enemiesExist())
+    {
+      currentGameState = GameState.EnemiesCleared;
+      Debug.Log("Game Over!");
+    }
   }
 
 }

@@ -9,17 +9,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 922011450657696887}
+  - component: {fileID: 7546059249343574767}
   - component: {fileID: 922011450657696880}
   - component: {fileID: 922011450657696882}
   - component: {fileID: 922011450657696883}
-  - component: {fileID: 922011450657696876}
   - component: {fileID: 922011450657696877}
   - component: {fileID: 922011450657696878}
   - component: {fileID: 922011450657696879}
   - component: {fileID: 6704695517727428145}
+  - component: {fileID: 825509129598819469}
   m_Layer: 0
   m_Name: Sload
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,6 +40,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7546059249343574767
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922011450657696872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.55
+  m_Height: 8.003906
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &922011450657696880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,20 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardpoint: {fileID: 0}
---- !u!114 &922011450657696876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922011450657696872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroHeadshot: {fileID: -8659029521331325047, guid: c14936ecd97fc874288de7aea6a8f47e,
-    type: 3}
 --- !u!114 &922011450657696877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,10 +149,10 @@ MonoBehaviour:
   Resistance: 5
   Agility: 25
   Experience: 0
+  UnitType: 1
   Block: 0
   Range: 8
   Cost: 17
-  UnitType: 1
   Level: 1
   currentXp: 0
   nextLevelXp: 120
@@ -210,6 +211,23 @@ MonoBehaviour:
     type: 3}
   currentTarget: {fileID: 0}
   attackAnimationName: Attack
+--- !u!114 &825509129598819469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922011450657696872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f58f77607f634ca063f8b82eba493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: -8659029521331325047, guid: c14936ecd97fc874288de7aea6a8f47e,
+    type: 3}
+  heroProfile: {fileID: -9159193188561635692, guid: c14936ecd97fc874288de7aea6a8f47e,
+    type: 3}
+  heroDisplayName: Sload
 --- !u!1001 &922011451351693694
 PrefabInstance:
   m_ObjectHideFlags: 0

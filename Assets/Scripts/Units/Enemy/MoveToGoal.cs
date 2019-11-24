@@ -83,6 +83,8 @@ public class MoveToGoal : MonoBehaviour
     targetToAttack = blocker;
     agent.speed = 0;
     isBlocked = true;
+    //attack buffer so enemies don't immediately slap the hero blocking them, which is kinda cheap
+    nextAttackTime = Time.time + attackSpeed;
   }
 
   public void unblockEnemy()

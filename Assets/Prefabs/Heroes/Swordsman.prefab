@@ -9,14 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6665974169352101834}
+  - component: {fileID: 5647006022100043533}
   - component: {fileID: 6665974169352101833}
   - component: {fileID: 6665974169352101832}
   - component: {fileID: 6665974169352101839}
   - component: {fileID: 6665974169352101838}
   - component: {fileID: 9127443332900485478}
-  - component: {fileID: 3356255026201738210}
   - component: {fileID: 2583232007128934278}
   - component: {fileID: -3979123069269364664}
+  - component: {fileID: 6164352077479766005}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Hero
@@ -39,6 +40,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5647006022100043533
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &6665974169352101833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,10 +123,10 @@ MonoBehaviour:
   Resistance: 5
   Agility: 45
   Experience: 0
+  UnitType: 0
   Block: 1
   Range: 1.3
   Cost: 10
-  UnitType: 0
   Level: 1
   currentXp: 0
   nextLevelXp: 100
@@ -156,20 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardpoint: {fileID: 0}
---- !u!114 &3356255026201738210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665974169352101837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroHeadshot: {fileID: -7328256368193133169, guid: 22c3cee11b0aa6c4ca2dcf2111d8d49d,
-    type: 3}
 --- !u!95 &2583232007128934278
 Animator:
   serializedVersion: 3
@@ -206,6 +207,23 @@ MonoBehaviour:
   healthBarCanvas: {fileID: 6253285884967136321}
   healthBar: {fileID: 1028707585422797390}
   healthBarAnimator: {fileID: 5563142851962806830}
+--- !u!114 &6164352077479766005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f58f77607f634ca063f8b82eba493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: -7328256368193133169, guid: 22c3cee11b0aa6c4ca2dcf2111d8d49d,
+    type: 3}
+  heroProfile: {fileID: -787485528536686554, guid: 22c3cee11b0aa6c4ca2dcf2111d8d49d,
+    type: 3}
+  heroDisplayName: Katana Boi
 --- !u!1001 &5120277598380970416
 PrefabInstance:
   m_ObjectHideFlags: 0

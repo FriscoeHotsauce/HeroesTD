@@ -9,15 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8155793126202733753}
+  - component: {fileID: 5909804047636376023}
   - component: {fileID: 8155793126202733755}
   - component: {fileID: 8155793126202733757}
   - component: {fileID: 1308490344}
   - component: {fileID: 31477907}
   - component: {fileID: 31477903}
   - component: {fileID: 4632301571185754229}
-  - component: {fileID: 8414937977376591365}
   - component: {fileID: 7773036088601996560}
   - component: {fileID: 4946301768888562355}
+  - component: {fileID: 6254859817202718073}
   m_Layer: 0
   m_Name: Melee Sprite
   m_TagString: Hero
@@ -40,6 +41,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5909804047636376023
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.46
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8155793126202733755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +138,10 @@ MonoBehaviour:
   Resistance: 5
   Agility: 40
   Experience: 0
+  UnitType: 0
   Block: 2
   Range: 1.5
   Cost: 13
-  UnitType: 0
   Level: 1
   currentXp: 0
   nextLevelXp: 100
@@ -143,20 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hardpoint: {fileID: 0}
---- !u!114 &8414937977376591365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8155793126202733756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7439862bf15dece49b16b1069e2f068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroHeadshot: {fileID: 5867817779904583695, guid: 6a77733a18b3e874f80b42a7c64bda44,
-    type: 3}
 --- !u!212 &7773036088601996560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -224,6 +225,23 @@ MonoBehaviour:
   healthBarCanvas: {fileID: 6983378341355815848}
   healthBar: {fileID: 4064331411940017575}
   healthBarAnimator: {fileID: 8869156709671275975}
+--- !u!114 &6254859817202718073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f58f77607f634ca063f8b82eba493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroHeadshot: {fileID: 5867817779904583695, guid: 6a77733a18b3e874f80b42a7c64bda44,
+    type: 3}
+  heroProfile: {fileID: 2557552500602111935, guid: 6a77733a18b3e874f80b42a7c64bda44,
+    type: 3}
+  heroDisplayName: Leutenant
 --- !u!1001 &8155793127968800345
 PrefabInstance:
   m_ObjectHideFlags: 0
