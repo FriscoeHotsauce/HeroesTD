@@ -15,6 +15,8 @@ public class HeroDetails : MonoBehaviour
   public string closeAnimation;
   public DetailsState currentState;
   public Image heroProfile;
+  public Transform requisitionManagerObject;
+  public RequisitionManager requisitionManager;
 
   //dynamic UI elements
   public Text currentHp;
@@ -29,6 +31,7 @@ public class HeroDetails : MonoBehaviour
   public Text Defense;
   public Text Resistance;
   public Text Agility;
+  public Text refundButtonText;
 
   //static text UI elements
   public Text name;
@@ -40,6 +43,7 @@ public class HeroDetails : MonoBehaviour
     selectedHero = null;
     heroDetailsAnimator = gameObject.GetComponent<Animator>();
     currentState = DetailsState.Closed;
+    requisitionManager = requisitionManagerObject.GetComponent<RequisitionManager>();
   }
 
   void Update()
@@ -100,11 +104,20 @@ public class HeroDetails : MonoBehaviour
     Resistance.text = "" + selectedHeroStats.getResistance();
     Agility.text = "" + selectedHeroStats.getResistance();
     Block.text = "" + selectedHeroStats.getBlock();
+    refundButtonText.text = "REFUND\n +" + (int)(selectedHeroStats.getCost() * .66f) + " REQ";
   }
 
   public void activateAbility()
   {
     Debug.Log("Abilities aren't a thing yet boss");
+  }
+
+  public void refundHero()
+  {
+    int pointsToRefund = (int)(selectedHeroStats.getCost() * .66f);
+    requisitionManager.addPoints(pointsToRefund);
+    Destroy(selectedHero.gameObject);
+    closeDetails();
   }
 
   public void closeDetails()

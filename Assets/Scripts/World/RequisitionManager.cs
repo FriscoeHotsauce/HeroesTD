@@ -66,6 +66,12 @@ public class RequisitionManager : MonoBehaviour
     return currentRequisitionPoints;
   }
 
+  public void addPoints(int points)
+  {
+    currentRequisitionPoints += points;
+    setRequisitionPointsView();
+  }
+
   private void applyPointsAndUpdateTime()
   {
     currentRequisitionPoints = currentRequisitionPoints + requsitionPointsPerTick;

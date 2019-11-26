@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class FreeHardpoint : MonoBehaviour
 {
-    public Hardpoint hardpoint;
+  public Hardpoint hardpoint;
 
-    void OnDestroy(){
-        hardpoint.removeUnit();
-    }
+  void OnDestroy()
+  {
+    hardpoint.removeUnit();
+  }
 
-    public void setHardpoint(Hardpoint hardpoint){
-        this.hardpoint = hardpoint;
-    }
+  public void setHardpoint(Hardpoint hardpoint)
+  {
+    this.hardpoint = hardpoint;
+  }
+
+  public Hardpoint getHardpoint()
+  {
+    return hardpoint;
+  }
 }
