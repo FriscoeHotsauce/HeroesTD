@@ -255,9 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df64cfd74b9907548b896a95e03eb22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requisitionToAdd: 3
+  requisitionToAdd: 7
   currentStatus: 0
-  cooldownTime: 0
+  cooldownTime: 45
   cooldownEnd: 0
   description: 
   requisitionManager: {fileID: 0}

@@ -8,6 +8,8 @@ public interface Ability
   void activateAbility();
 
   bool isAvailable();
+
+  float timeUntilReady();
 }
 
 public enum AbilityStatus

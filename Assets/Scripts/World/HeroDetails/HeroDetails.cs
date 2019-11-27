@@ -33,6 +33,7 @@ public class HeroDetails : MonoBehaviour
   public Text Resistance;
   public Text Agility;
   public Text refundButtonText;
+  public Text abilityButtonText;
   public Button abilityButton;
 
   //static text UI elements
@@ -113,7 +114,10 @@ public class HeroDetails : MonoBehaviour
 
   public void activateAbility()
   {
-    Debug.Log("Abilities aren't a thing yet boss");
+    if (heroAbility != null)
+    {
+      heroAbility.activateAbility();
+    }
   }
 
   public void refundHero()
@@ -141,15 +145,21 @@ public class HeroDetails : MonoBehaviour
       if (heroAbility.isAvailable() && !abilityButton.interactable)
       {
         abilityButton.interactable = true;
+        abilityButtonText.text = "ACTIVATE";
       }
       else if (!heroAbility.isAvailable() && abilityButton.interactable)
       {
         abilityButton.interactable = false;
       }
+      else if (!heroAbility.isAvailable() && !abilityButton.interactable)
+      {
+        abilityButtonText.text = "Available in \n" + (String.Format("{0:.00}", Math.Round(heroAbility.timeUntilReady(), 2)));
+      }
     }
     else
     {
       abilityButton.interactable = false;
+      abilityButtonText.text = "No Ability";
     }
   }
 }

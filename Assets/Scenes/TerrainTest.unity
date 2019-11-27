@@ -3965,8 +3965,9 @@ MonoBehaviour:
   Resistance: {fileID: 2032996270}
   Agility: {fileID: 1696994355}
   refundButtonText: {fileID: 1598969758}
+  abilityButtonText: {fileID: 73102921}
   abilityButton: {fileID: 283706520}
-  heroName: {fileID: 0}
+  heroName: {fileID: 2125022258}
   Block: {fileID: 208541328}
 --- !u!1001 &1872064203
 PrefabInstance:

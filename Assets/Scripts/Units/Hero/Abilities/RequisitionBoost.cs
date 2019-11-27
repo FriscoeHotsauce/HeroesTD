@@ -14,6 +14,8 @@ public class RequisitionBoost : MonoBehaviour, Ability
   void Start()
   {
     requisitionManager = GameObject.FindGameObjectWithTag("RequisitionManager").GetComponent<RequisitionManager>();
+    currentStatus = AbilityStatus.Cooldown;
+    cooldownEnd = Time.time + cooldownTime;
   }
 
   public virtual void activateAbility()
@@ -28,9 +30,14 @@ public class RequisitionBoost : MonoBehaviour, Ability
     return currentStatus == AbilityStatus.Ready;
   }
 
+  public virtual float timeUntilReady()
+  {
+    return cooldownEnd - Time.time;
+  }
+
   void Update()
   {
-    if (currentStatus == AbilityStatus.Cooldown && cooldownEnd > Time.time)
+    if (currentStatus == AbilityStatus.Cooldown && Time.time > cooldownEnd)
     {
       currentStatus = AbilityStatus.Ready;
     }
