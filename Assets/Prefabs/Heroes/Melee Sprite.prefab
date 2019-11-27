@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7773036088601996560}
   - component: {fileID: 4946301768888562355}
   - component: {fileID: 6254859817202718073}
+  - component: {fileID: -5952987297036496396}
   m_Layer: 0
   m_Name: Melee Sprite
   m_TagString: Hero
@@ -242,6 +243,24 @@ MonoBehaviour:
   heroProfile: {fileID: 2557552500602111935, guid: 6a77733a18b3e874f80b42a7c64bda44,
     type: 3}
   heroDisplayName: Leutenant
+--- !u!114 &-5952987297036496396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df64cfd74b9907548b896a95e03eb22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requisitionToAdd: 3
+  currentStatus: 0
+  cooldownTime: 0
+  cooldownEnd: 0
+  description: 
+  requisitionManager: {fileID: 0}
 --- !u!1001 &8155793127968800345
 PrefabInstance:
   m_ObjectHideFlags: 0

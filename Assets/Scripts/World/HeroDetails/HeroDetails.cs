@@ -17,6 +17,7 @@ public class HeroDetails : MonoBehaviour
   public Image heroProfile;
   public Transform requisitionManagerObject;
   public RequisitionManager requisitionManager;
+  public Ability heroAbility;
 
   //dynamic UI elements
   public Text currentHp;
@@ -32,9 +33,10 @@ public class HeroDetails : MonoBehaviour
   public Text Resistance;
   public Text Agility;
   public Text refundButtonText;
+  public Button abilityButton;
 
   //static text UI elements
-  public Text name;
+  public Text heroName;
   public Text Block;
 
   public enum DetailsState { Open, Closed }
@@ -82,9 +84,10 @@ public class HeroDetails : MonoBehaviour
   {
     HeroDisplayLibrary displayLibrary = selectedHero.GetComponent<HeroDisplayLibrary>();
     heroProfile.sprite = displayLibrary.getHeroProfile();
-    name.text = displayLibrary.getHeroDisplayName();
+    heroName.text = displayLibrary.getHeroDisplayName();
     selectedHeroStats = selectedHero.GetComponent<HeroStats>();
     selectedHeroHealthBar = selectedHero.GetComponent<HealthBar>();
+    heroAbility = selectedHero.GetComponent<Ability>();
 
     updateUI();
   }
@@ -105,6 +108,7 @@ public class HeroDetails : MonoBehaviour
     Agility.text = "" + selectedHeroStats.getResistance();
     Block.text = "" + selectedHeroStats.getBlock();
     refundButtonText.text = "REFUND\n +" + (int)(selectedHeroStats.getCost() * .66f) + " REQ";
+    updateAbilityButtonValidity();
   }
 
   public void activateAbility()
@@ -128,5 +132,24 @@ public class HeroDetails : MonoBehaviour
       currentState = DetailsState.Closed;
     }
     selectedHero = null;
+  }
+
+  private void updateAbilityButtonValidity()
+  {
+    if (heroAbility != null)
+    {
+      if (heroAbility.isAvailable() && !abilityButton.interactable)
+      {
+        abilityButton.interactable = true;
+      }
+      else if (!heroAbility.isAvailable() && abilityButton.interactable)
+      {
+        abilityButton.interactable = false;
+      }
+    }
+    else
+    {
+      abilityButton.interactable = false;
+    }
   }
 }
