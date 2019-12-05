@@ -12,7 +12,6 @@ using UnityEngine;
     @property Agility
     @property Movement
     @Property Experience
-
  */
 public abstract class Stats : MonoBehaviour
 {
@@ -44,6 +43,11 @@ public abstract class Stats : MonoBehaviour
   public void addAttack(int attack)
   {
     Attack = Attack + attack;
+  }
+
+  public void subtractAttack(int attack)
+  {
+    Attack = Attack - attack;
   }
 
   public int getMagic()

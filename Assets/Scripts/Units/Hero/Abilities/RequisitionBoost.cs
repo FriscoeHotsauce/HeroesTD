@@ -18,19 +18,19 @@ public class RequisitionBoost : MonoBehaviour, Ability
     cooldownEnd = Time.time + cooldownTime;
   }
 
-  public virtual void activateAbility()
+  public void activateAbility()
   {
     requisitionManager.addPoints(requisitionToAdd);
     currentStatus = AbilityStatus.Cooldown;
     cooldownEnd = Time.time + cooldownTime;
   }
 
-  public virtual bool isAvailable()
+  public bool isAvailable()
   {
     return currentStatus == AbilityStatus.Ready;
   }
 
-  public virtual float timeUntilReady()
+  public float timeUntilReady()
   {
     return cooldownEnd - Time.time;
   }

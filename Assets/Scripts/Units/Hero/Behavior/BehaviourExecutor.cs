@@ -6,6 +6,8 @@ using UnityEngine;
 //must be placed on a class with Stats
 public class BehaviourExecutor : MonoBehaviour
 {
+
+  private List<Effect> effects;
   private List<Behavior> behaviors;
 
   void Start()
@@ -13,7 +15,6 @@ public class BehaviourExecutor : MonoBehaviour
     behaviors = GetComponents<Behavior>().ToList();
   }
 
-  // Update is called once per frame
   void FixedUpdate()
   {
     executeBehaviors();
@@ -45,5 +46,10 @@ public class BehaviourExecutor : MonoBehaviour
         }
       }
     }
+  }
+
+  private void executeEffects()
+  {
+
   }
 }

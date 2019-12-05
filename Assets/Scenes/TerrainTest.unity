@@ -4933,11 +4933,23 @@ PrefabInstance:
     - target: {fileID: 2480461780919219689, guid: ef93769d6e093e8449b38d811d84e5d8,
         type: 3}
       propertyPath: heroRoster.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2480461780919219689, guid: ef93769d6e093e8449b38d811d84e5d8,
         type: 3}
       propertyPath: heroRoster.Array.data[5]
+      value: 
+      objectReference: {fileID: 6855593059933583922, guid: b73525a81d6be6a45aa04b53dea70276,
+        type: 3}
+    - target: {fileID: 2480461780919219689, guid: ef93769d6e093e8449b38d811d84e5d8,
+        type: 3}
+      propertyPath: heroRoster.Array.data[3]
+      value: 
+      objectReference: {fileID: 922011450657696887, guid: f0322a9fc0eeadf4a9b14eb1642d3046,
+        type: 3}
+    - target: {fileID: 2480461780919219689, guid: ef93769d6e093e8449b38d811d84e5d8,
+        type: 3}
+      propertyPath: heroRoster.Array.data[4]
       value: 
       objectReference: {fileID: 6855593059933583922, guid: b73525a81d6be6a45aa04b53dea70276,
         type: 3}

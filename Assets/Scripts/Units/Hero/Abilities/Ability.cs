@@ -14,5 +14,5 @@ public interface Ability
 
 public enum AbilityStatus
 {
-  Active, Cooldown, Ready
+  Active, Cooldown, Ready, PendingInput
 }

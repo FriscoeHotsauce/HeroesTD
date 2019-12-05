@@ -47,7 +47,7 @@ public class HeroStats : Stats
     Cost = Cost + cost;
   }
 
-  public int getExperience()
+  public int getCurrentExperience()
   {
     return currentXp;
   }
