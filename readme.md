@@ -6,7 +6,7 @@ In Heroes Tower Defense, the player controls a small band of heroes as they desp
 
 Heroes Tower Defense is a working title, and very much a work in progress. Currently I am working on a vertical slice, focusing on building out game systems instead of content.
 
-Vertical Slice Progress
+### Vertical Slice Progress
 
 [X] Basic Enemy Pathing - move to the goal and do damage to it
 
