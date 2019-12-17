@@ -90,6 +90,11 @@ public abstract class Stats : MonoBehaviour
     Agility = Agility + agility;
   }
 
+  public void subtractAgility(float agility)
+  {
+    Agility = Agility - agility;
+  }
+
   public int getExperience()
   {
     return Experience;

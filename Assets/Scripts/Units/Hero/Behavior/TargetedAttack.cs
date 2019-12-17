@@ -12,7 +12,6 @@ public class TargetedAttack : MonoBehaviour, TimedBehavior
   private Stats sourceStats;
   private Animator animator;
   public float range;
-  private float attackSpeed;
   private float nextAttackTime;
 
 
@@ -22,7 +21,6 @@ public class TargetedAttack : MonoBehaviour, TimedBehavior
     sourceStats = GetComponent<Stats>();
     range = findRangeInSourceStats();
 
-    attackSpeed = Utils.calculateAttackRate(sourceStats.getUnitType(), sourceStats.getAgility());
     nextAttackTime = 0.0f;
   }
 
@@ -56,7 +54,7 @@ public class TargetedAttack : MonoBehaviour, TimedBehavior
 
   public virtual void resetCooldown()
   {
-    nextAttackTime = Time.time + attackSpeed;
+    nextAttackTime = Time.time + calculateAttackSpeed();
   }
 
   private void fireMissile()
@@ -138,5 +136,10 @@ public class TargetedAttack : MonoBehaviour, TimedBehavior
     {
       return false;
     }
+  }
+
+  private float calculateAttackSpeed()
+  {
+    return Utils.calculateAttackRate(sourceStats.getUnitType(), sourceStats.getAgility());
   }
 }

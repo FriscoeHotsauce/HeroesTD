@@ -3360,7 +3360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 2
-  spawnInterval: 1.8
+  spawnInterval: 2.2
   initialSpawnDelay: 0
   spawnLocation: {fileID: 957105721}
   spawnPrefab: {fileID: 6109182099262918457, guid: 3b971b453b3e93543b55f978db6647a1,
@@ -3379,7 +3379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 2
-  spawnInterval: 1.8
+  spawnInterval: 2.2
   initialSpawnDelay: 0.3
   spawnLocation: {fileID: 1062256730}
   spawnPrefab: {fileID: 6109182099262918457, guid: 3b971b453b3e93543b55f978db6647a1,
@@ -3398,7 +3398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 2
-  spawnInterval: 3.2
+  spawnInterval: 4
   initialSpawnDelay: 3
   spawnLocation: {fileID: 957105721}
   spawnPrefab: {fileID: 3981779349609903604, guid: cd531501e99624d499ad260af0946602,
@@ -3724,7 +3724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 1
-  spawnInterval: 2
+  spawnInterval: 2.5
   initialSpawnDelay: 0
   spawnLocation: {fileID: 1275166879}
   spawnPrefab: {fileID: 6109182099262918457, guid: 3b971b453b3e93543b55f978db6647a1,
@@ -3743,7 +3743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 1
-  spawnInterval: 2
+  spawnInterval: 3
   initialSpawnDelay: 0.3
   spawnLocation: {fileID: 1062256730}
   spawnPrefab: {fileID: 6109182099262918457, guid: 3b971b453b3e93543b55f978db6647a1,

@@ -11,5 +11,19 @@ public interface Effect
 
   void activateEffect();
 
+  EffectState getEffectState();
+
+  EffectType getEffectType();
+
   void endEffect();
+}
+
+public enum EffectState
+{
+  OnCooldown, Activate, EndEffect
+}
+
+public enum EffectType
+{
+  Buff, Debuff
 }

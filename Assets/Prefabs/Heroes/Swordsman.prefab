@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2583232007128934278}
   - component: {fileID: -3979123069269364664}
   - component: {fileID: 6164352077479766005}
+  - component: {fileID: 1808151060292565833}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Hero
@@ -224,6 +225,25 @@ MonoBehaviour:
   heroProfile: {fileID: -787485528536686554, guid: 22c3cee11b0aa6c4ca2dcf2111d8d49d,
     type: 3}
   heroDisplayName: Katana Boi
+--- !u!114 &1808151060292565833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2a84b20ceb32b48802820980040a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  cooldownTime: 30
+  cooldownEnd: 0
+  percentBoost: 20
+  heroStats: {fileID: 0}
+  currentStatus: 0
+  heroBehaviorExecutor: {fileID: 0}
 --- !u!1001 &5120277598380970416
 PrefabInstance:
   m_ObjectHideFlags: 0

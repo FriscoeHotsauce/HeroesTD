@@ -106,7 +106,7 @@ public class HeroDetails : MonoBehaviour
     Magic.text = "" + selectedHeroStats.getMagic();
     Defense.text = "" + selectedHeroStats.getDefense();
     Resistance.text = "" + selectedHeroStats.getResistance();
-    Agility.text = "" + selectedHeroStats.getResistance();
+    Agility.text = "" + selectedHeroStats.getAgility();
     Block.text = "" + selectedHeroStats.getBlock();
     refundButtonText.text = "REFUND\n +" + (int)(selectedHeroStats.getCost() * .66f) + " REQ";
     updateAbilityButtonValidity();

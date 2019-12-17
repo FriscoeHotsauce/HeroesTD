@@ -7,20 +7,22 @@ using UnityEngine;
 public class BehaviourExecutor : MonoBehaviour
 {
 
-  private List<Effect> effects;
-  private List<Behavior> behaviors;
+  public List<Effect> effects;
+  public List<Behavior> behaviors;
 
   void Start()
   {
+    effects = new List<Effect>();
     behaviors = GetComponents<Behavior>().ToList();
   }
 
   void FixedUpdate()
   {
     executeBehaviors();
+    updateAndExecuteEffects();
   }
 
-  private void executeBehaviors()
+  public void executeBehaviors()
   {
     bool actionsExceeded = false;
     foreach (Behavior behavior in behaviors)
@@ -48,8 +50,38 @@ public class BehaviourExecutor : MonoBehaviour
     }
   }
 
-  private void executeEffects()
+  public void addEffect(Effect effect)
   {
-
+    effect.beginEffect();
+    effects.Add(effect);
   }
+
+  public void updateAndExecuteEffects()
+  {
+    //use a separate list for removal because it's bad manners to modify the one you're iterating over
+    List<Effect> effectsToRemove = new List<Effect>();
+
+    foreach (Effect effect in effects)
+    {
+      //always update the cooldown first. Update cooldown may change the state of the effect
+      effect.updateCooldown();
+
+      if (effect.getEffectState() == EffectState.Activate)
+      {
+        effect.activateEffect();
+      }
+      else if (effect.getEffectState() == EffectState.EndEffect)
+      {
+        effect.endEffect();
+        effectsToRemove.Add(effect);
+      }
+    }
+
+    foreach (Effect effect in effectsToRemove)
+    {
+      effects.Remove(effect);
+    }
+  }
+
+
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 564841305866988756}
   - component: {fileID: 564841305866988777}
-  - component: {fileID: 564841305866988754}
   - component: {fileID: 341712647}
   - component: {fileID: 5272153505331671840}
   - component: {fileID: 5045397988343236354}
@@ -18,6 +17,9 @@ GameObject:
   - component: {fileID: 1312799127}
   - component: {fileID: 7816713562031487400}
   - component: {fileID: 94845497402883565}
+  - component: {fileID: -8335081491330295320}
+  - component: {fileID: 7907000994531335540}
+  - component: {fileID: 8941695659675241060}
   m_Layer: 0
   m_Name: Ranged Hero
   m_TagString: Hero
@@ -54,25 +56,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &564841305866988754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564841305866988779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb722be2098beed4e94daf8f25c32062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 0
-  attack: 0
-  attackSpeed: 0
-  missilePrefab: {fileID: 6557227333961929962, guid: 6e7b78ec12767ae4bb74b11027bf8ef5,
-    type: 3}
-  currentTarget: {fileID: 0}
-  attackAnimationName: Archer_Attack
 --- !u!114 &341712647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +211,54 @@ MonoBehaviour:
   heroProfile: {fileID: 3001767060249510921, guid: 4d8c8fb12b3731549ba5dc7c7376f631,
     type: 3}
   heroDisplayName: Archer
+--- !u!114 &-8335081491330295320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564841305866988779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6663df9ce361e8840be2d7efa5e6101b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Archer_Attack
+  missilePrefab: {fileID: 6557227333961929962, guid: 6e7b78ec12767ae4bb74b11027bf8ef5,
+    type: 3}
+  targetAlignment: 1
+  range: 0
+--- !u!114 &7907000994531335540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564841305866988779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9149c7c56f7eac74eaeebc46f755c8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8941695659675241060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564841305866988779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc99148b0c42634489fa5b1b82a7bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  cooldownTime: 25
+  cooldownEnd: 0
+  percentBoost: 0.5
+  heroStats: {fileID: 0}
+  currentStatus: 0
+  heroBehaviorExecutor: {fileID: 0}
 --- !u!1001 &490967709756526652
 PrefabInstance:
   m_ObjectHideFlags: 0
