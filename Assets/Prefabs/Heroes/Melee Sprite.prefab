@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8155793126202733753}
   - component: {fileID: 5909804047636376023}
-  - component: {fileID: 8155793126202733755}
   - component: {fileID: 8155793126202733757}
   - component: {fileID: 1308490344}
   - component: {fileID: 31477907}
@@ -20,6 +19,9 @@ GameObject:
   - component: {fileID: 4946301768888562355}
   - component: {fileID: 6254859817202718073}
   - component: {fileID: -5952987297036496396}
+  - component: {fileID: -3490117385189064997}
+  - component: {fileID: -3321979090592159883}
+  - component: {fileID: -6868912155781870680}
   m_Layer: 0
   m_Name: Melee Sprite
   m_TagString: Hero
@@ -56,21 +58,6 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8155793126202733755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8155793126202733756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8912af27111ab41b3dbae892992161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackAnimation: Swipe
-  attackSpeed: 0
-  animator: {fileID: 0}
 --- !u!114 &8155793126202733757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +248,43 @@ MonoBehaviour:
   cooldownEnd: 0
   description: 
   requisitionManager: {fileID: 0}
+--- !u!114 &-3490117385189064997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9149c7c56f7eac74eaeebc46f755c8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3321979090592159883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad1a09daae283b4c97d6410f8136b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAnimationName: Swipe
+--- !u!114 &-6868912155781870680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155793126202733756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f395f20f256fb0443bf321eaff363933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8155793127968800345
 PrefabInstance:
   m_ObjectHideFlags: 0

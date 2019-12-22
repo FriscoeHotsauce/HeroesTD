@@ -17,12 +17,15 @@ public interface PassiveBehavior : Behavior
 {
 }
 
+public interface BlockBehavior : PassiveBehavior
+{
+  List<GameObject> getEnagedEnemies();
+}
+
 public interface Behavior
 {
 
   bool shouldExecute();
-  /*
-    Perform the action
-   */
+
   void executeBehavior();
 }

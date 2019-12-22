@@ -12,13 +12,15 @@ GameObject:
   - component: {fileID: 5647006022100043533}
   - component: {fileID: 6665974169352101833}
   - component: {fileID: 6665974169352101832}
-  - component: {fileID: 6665974169352101839}
   - component: {fileID: 6665974169352101838}
   - component: {fileID: 9127443332900485478}
   - component: {fileID: 2583232007128934278}
   - component: {fileID: -3979123069269364664}
   - component: {fileID: 6164352077479766005}
   - component: {fileID: 1808151060292565833}
+  - component: {fileID: 3583346050692116154}
+  - component: {fileID: -2450167232173080488}
+  - component: {fileID: 5918268127824993786}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Hero
@@ -131,21 +133,6 @@ MonoBehaviour:
   Level: 1
   currentXp: 0
   nextLevelXp: 100
---- !u!114 &6665974169352101839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665974169352101837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8912af27111ab41b3dbae892992161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackAnimation: Swordsman_Attack
-  attackSpeed: 0
-  animator: {fileID: 0}
 --- !u!114 &6665974169352101838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +231,43 @@ MonoBehaviour:
   heroStats: {fileID: 0}
   currentStatus: 0
   heroBehaviorExecutor: {fileID: 0}
+--- !u!114 &3583346050692116154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9149c7c56f7eac74eaeebc46f755c8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2450167232173080488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f395f20f256fb0443bf321eaff363933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5918268127824993786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665974169352101837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad1a09daae283b4c97d6410f8136b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAnimationName: Swordsman_Attack
 --- !u!1001 &5120277598380970416
 PrefabInstance:
   m_ObjectHideFlags: 0
