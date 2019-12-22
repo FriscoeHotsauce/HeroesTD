@@ -22,7 +22,7 @@ Heroes Tower Defense is a working title, and very much a work in progress. Curre
 
 [X] Behaviors - what should units be doing at any given time
 
-[ in progress ] Effects - temporary modifiers to a unit
+[X] Effects - temporary modifiers to a unit
 
 [ ] Set Pieces - Environmental decorations that can be interacted with by units on the battle map
 
